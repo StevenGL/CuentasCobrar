@@ -1,1 +1,1 @@
-web: gunicorn CuentasCobrar.wsgi --log-file -
+web: gunicorn cuentascobrar.wsgi --log-file -
