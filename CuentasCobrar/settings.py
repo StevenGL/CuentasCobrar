@@ -28,7 +28,7 @@ SECRET_KEY = 'wu#k^er*(bk9m0htb)i-*)ywjb==pw9s&ba2b868lp+**50@xl'
 DEBUG = True
 
 ALLOWED_HOSTS = ["cryptic-lowlands-53825.herokuapp.com",
-                 "127.0.0.1",]
+                 ]
 
 
 
