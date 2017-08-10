@@ -1,1 +1,1 @@
-web: gunicorn CuentasCobrar.wsgi -b 0.0.0.0:$PORT
+web: gunicorn aplication:app
