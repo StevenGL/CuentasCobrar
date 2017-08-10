@@ -1,11 +1,19 @@
 {% extends 'Base/base.html' %}
 
 {% block content %}
+    {% if result %}
+<h2>{{ result }}</h2>
+{% endif %}
 
-<p><strong>Descripcion: </strong>{{ object.Descripcion }} </p>
+    <p><strong>Descripcion: </strong>{{ object.Descripcion }} </p>
 <p><strong>Fecha: </strong>{{ object.Fecha }} </p>
 <p><strong>Monto: </strong>{{ object.Monto }} </p>
+    <form method="post" action="{% url 'Cuentas:AsientosContables' %}">
+    {% csrf_token %}
+        <label>Enviar</label>
+<button type="Submit" value="Submit" class= "btn btn-success" >Ok</button>
 
-<a type="Submit" class= "btn btn-success" href="{% url 'Cuentas:AsientosContables_List' %}">Ok</a>
+    </form>
+
 
 {% endblock %}
