@@ -137,9 +137,10 @@ class Enviar_AsientosContables(DetailView):
     model = Transacciones
     template_name = 'Cuenta/Enviar.html'
 #-------------------------------------------------------------------------------------------------------------------
-    def ws(request):
+    def Enviar(request):
+        model = Transacciones
         url = "http://accountingintegration.azurewebsites.net/api/accountingentry"
-        headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
+        headers = {'Content-type': 'application/json'}
 
         data = {
 
@@ -167,7 +168,5 @@ class Enviar_AsientosContables(DetailView):
         }
         r = requests.post(url, data=json.dumps(data), headers=headers)
 
-        print(r.text)
-
-        return render(request, {"Envio":r})
+        return render(request, {"Envio":r}, model)
 #     return render_to_response('Enviar.html', {'j': r},)
