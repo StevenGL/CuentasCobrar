@@ -1,0 +1,49 @@
+{% extends 'Base/base.html'%}
+
+{%block content%}
+
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<td>Descripcion</td>
+			<!--<td><td>Tipo de movimiento</td>-->
+            <!--<td>Cuenta</td>-->
+            <td>Fecha</td>
+            <td>Monto</td>
+            <td>Acciones</td>
+	</thead>
+	<tbody>
+		{% if object_list%}
+		{% for Td in object_list %}
+		<tr>
+			<td>{{ Td.Descripcion }}</td>
+            <!--<td><td>{{ Td.Tipo_Movimiento }}</td>-->
+			<!--<td>{{ Td.Cuenta }}</td>-->
+            <td>{{ Td.Fecha }}</td>
+			<td>{{ Td.Monto }}</td>
+			<td>
+				<a class="btn btn-primary" href="{% url 'Cuentas:Enviar_AsientosContables' Td.id %} ">Enviar</a>
+				
+            </td>
+		</tr>
+		{% endfor %}
+		
+		{% else %}
+		<h1>No hay transacciones registradas</h1>
+		{% endif %}
+	</tbody>
+</table>
+<ul class="pager">
+	<li>
+		{% if page_obj.has_previous %}
+       	 <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+		{% endif %}
+        </li>
+	<li>
+		{% if page_obj.has_next %}
+     	 <a href="?page={{ page_obj.next_page_number }}">Next</a> 
+    	{% endif %}
+    </li>
+</ul> 
+
+{% endblock %}

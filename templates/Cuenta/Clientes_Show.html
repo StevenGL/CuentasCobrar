@@ -1,0 +1,14 @@
+{% extends 'Base/base.html' %}
+
+{% block content %}
+
+<p><strong>Nobre: </strong>{{ object.Nombre }} </p>
+<p><strong>Cedula: </strong>{{ object.Cedula }} </p>
+<p><strong>Limite de Credito: </strong>{{ object.Limite_Credito }} </p>
+<p><strong>Estado: </strong>{{ object.Estado }} </p>
+
+<a class= "btn btn-success" href="{% url 'Cuentas:Clientes_List' %}">Ok</a>
+<a class= "btn btn-primary" href="{% url 'Cuentas:Clientes_Editar' object.id%}">Editar</a>
+<a class="btn btn-danger" href="{% url 'Cuentas:Clientes_Borrar' object.id %}">Eliminar</a>
+
+{% endblock %}

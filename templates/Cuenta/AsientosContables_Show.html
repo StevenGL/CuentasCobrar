@@ -1,0 +1,17 @@
+{% extends 'Base/base.html' %}
+
+{% block content %}
+
+<p><strong>Descripcion: </strong>{{ object.Descripcion }} </p>
+<p><strong>Cliente: </strong>{{ object.Cliente }} </p>
+<p><strong>Estado: </strong>{{ object.Estado }} </p>
+<p><strong>Fecha: </strong>{{ object.Fecha }} </p>
+<p><strong>Descripcion: </strong>{{ object.Descripcion }} </p>
+<p><strong>Tipo_Movimiento: </strong>{{ object.Tipo_Movimiento }} </p>
+<p><strong>Monto: </strong>{{ object.Monto }} </p>
+
+<a class= "btn btn-success" href="{% url 'Cuentas:AsientosContables_List' %}">Ok</a>
+<a class= "btn btn-primary" href="{% url 'Cuentas:AsientosContables_Editar' object.id%}">Editar</a>
+<a class="btn btn-danger" href="{% url 'Cuentas:AsientosContables_Borrar' object.id %}">Eliminar</a>
+
+{% endblock %}

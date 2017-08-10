@@ -1,0 +1,101 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+
+	{% block extrastatic %}
+	{% endblock %}
+
+    <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+ <!--
+
+   </script>-->
+	<link rel="stylesheet"  type="text/css" href="{% static 'CSS1/bootstrap.min.css' %}">
+
+    
+	<title>{% block title %}Document {% endblock %}</title>
+</head>
+<body>
+<div class="container">
+
+	{% block navbar %}
+		<div class="bs-docs-section clearfix" style="margin-top:40px;">
+		    <div class="row">
+		        <div class="col-lg-12">
+		            <div class="bs-component">
+		            	<nav class="navbar navbar-default">
+		                	<div class="container-fluid">
+		                  		<div class="navbar-header">
+		                    		<a class="navbar-brand" href="#">CxC</a>
+		                  		</div>
+		                  	<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		                    	<ul class="nav navbar-nav">
+		                      		<li class="dropdown">
+		                        		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Tipos de documentos <span class="caret"></span></a>
+				                        <ul class="dropdown-menu" role="menu">
+				                        	<li><a href="{% url 'Cuentas:TiposDocumentos_Create' %}">Nuevo</a></li>
+				                        	<li><a href="{%url 'Cuentas:TiposDocumentos_List'%}">Lista</a></li>
+				                        	<!--<li><a href="#">Buscar/Filtrar</a></li>-->
+				                        </ul>
+		                      		</li>
+                                    
+                                    <li class="dropdown">
+		                        		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Clientes<span class="caret"></span></a>
+				                        <ul class="dropdown-menu" role="menu">
+				                        	<li><a href="{% url 'Cuentas:Clientes_Create' %}">Nuevo</a></li>
+				                        	<li><a href="{%url 'Cuentas:Clientes_List'%}">Lista</a></li>
+				                        	<!--<li><a href="#">Buscar/Filtrar</a></li>-->
+				                        </ul>
+		                      		</li>
+                                    
+                                    <li class="dropdown">
+		                        		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Transacciones <span class="caret"></span></a>
+				                        <ul class="dropdown-menu" role="menu">
+				                        	<li><a href="{% url 'Cuentas:Transacciones_Create' %}">Nuevo</a></li>
+				                        	<li><a href="{%url 'Cuentas:Transacciones_List'%}">Lista</a></li>
+				                        	<!--<li><a href="#">Buscar/Filtrar</a></li>-->
+				                        </ul>
+		                      		</li>
+                                    
+                                    <li class="dropdown">
+		                        		<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Asientos contables <span class="caret"></span></a>
+				                        <ul class="dropdown-menu" role="menu">
+				                        	<li><a href="{% url 'Cuentas:AsientosContables_Create' %}">Nuevo</a></li>
+				                        	<li><a href="{%url 'Cuentas:AsientosContables_List'%}">Lista</a></li>
+				                        	<!--<li><a href="#">Buscar/Filtrar</a></li>-->
+				                        </ul>
+		                      		</li>
+		                    	</ul>
+		                    </div>
+		                </div>
+		            </nav>
+		        </div>
+           	</div>
+        </div>
+    </div>    
+
+	{% endblock %}
+
+
+	{% block content %}
+	<h4>	Bloque de contenido		</h4>
+	{% endblock %}
+
+<div style="margin-bottom: 40px"></div>
+	{% block footer %}
+	{% endblock%}
+</div>
+
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="{{ STATIC_URL }}js/jquery.js"></script>-->
+
+    <script src="{% static 'js/jquery-3.2.1.js' %}"></script>
+     <script src="https://code.jquery.com/jquery-3.1.0.min.js"></script>
+   <!-- <script src="{% static 'js/bootstrap.min.js' %}"></script>-->
+	{% block extrajs %}
+	{% endblock %}
+
+
+</body>
+</html>

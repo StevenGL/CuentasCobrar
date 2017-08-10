@@ -1,0 +1,64 @@
+{% extends 'Base/base.html' %}
+
+{% block content %}
+
+<!--<h4>Filtrar por:</h4>
+	<form method="get">
+	<p>
+	Estado: &nbsp{{ filter.form.Estado }} &nbsp
+	Cuenta contable: &nbsp {{ filter.form.CuentaContable}} &nbsp
+	<button class="btn btn-success" type="submit">Filtrar</button>
+	</p>
+	</form> -->
+
+<table class="table table-bordered">
+	<thead>
+		<tr>
+			<td>#</td>
+			<td>Descripcion</td>
+			<td>Cliente</td>
+			<td>Tipo de movimiento</td>
+            <td>Cuenta</td>
+            <td>Fecha</td>
+            <td>Monto</td>
+            <td>Estado</td>
+            <td>Acciones</td>
+	</thead>
+	<tbody>
+		{% if object_list %}
+		{% for Td in object_list %}
+		<tr>
+			<td>{{ Td.id }}</td>
+			<td>{{ Td.Descripcion }}</td>
+			<td>{{ Td.Cliente }}</td>
+            <td>{{ Td.Tipo_Movimiento }}</td>
+			<td>{{ Td.Cuenta }}</td>
+            <td>{{ Td.Fecha }}</td>
+			<td>{{ Td.monto }}</td>
+			<td>{{ Td.Estado }}</td>
+			<td>
+				<a class="btn btn-primary" href="{% url 'Cuentas:AsientosContables_Detail' Td.id %} ">Ver</a>
+				<a class="btn btn-primary" href="{% url 'Cuentas:AsientosContables_Editar' Td.id %} ">Editar</a>
+				<a class="btn btn-danger" href="{% url 'Cuentas:AsientosContables_Borrar' Td.id %} ">Eliminar</a>
+			</td>
+		</tr>
+		{% endfor %}
+		
+		{% else %}
+		<h1>No hay registros de documentos</h1>
+		{% endif %}
+	</tbody>
+</table>
+<ul class="pager">
+	<li>
+		{% if page_obj.has_previous %}
+       	 <a href="?page={{ page_obj.previous_page_number }}">Previous</a>
+		{% endif %}
+        </li>
+	<li>
+		{% if page_obj.has_next %}
+     	 <a href="?page={{ page_obj.next_page_number }}">Next</a> 
+    	{% endif %}
+    </li>
+</ul> 
+{% endblock%}

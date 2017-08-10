@@ -1,0 +1,11 @@
+{% extends 'Base/base.html'%}
+
+{% block content %}
+<form method ="post">
+{% csrf_token %}
+    {{ form.as_p}}
+    <button class="btn btn-sucess" type="submit">Guardar</button>
+    <a class= "btn btn-primary" href="{% url 'Cuentas:TiposDocumentos_List' %}">Cancelar</a>
+</form>
+
+{% endblock %}

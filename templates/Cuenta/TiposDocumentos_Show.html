@@ -1,0 +1,13 @@
+{% extends 'Base/base.html' %}
+
+{% block content %}
+
+<p><strong>Descripcion: </strong>{{ object.Descripcion }} </p>
+<p><strong>Cuenta contable: </strong>{{ object.CuentaContable }} </p>
+<p><strong>Estado: </strong>{{ object.Estado }} </p>
+
+<a class= "btn btn-success" href="{% url 'Cuentas:TiposDocumentos_List' %}">Ok</a>
+<a class= "btn btn-primary" href="{% url 'Cuentas:TiposDocumentos_Editar' object.id%}">Editar</a>
+<a class="btn btn-danger" href="{% url 'Cuentas:TiposDocumentos_Borrar' object.id %}">Eliminar</a>
+
+{% endblock %}

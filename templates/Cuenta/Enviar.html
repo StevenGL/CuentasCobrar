@@ -1,0 +1,11 @@
+{% extends 'Base/base.html' %}
+
+{% block content %}
+
+<p><strong>Descripcion: </strong>{{ object.Descripcion }} </p>
+<p><strong>Fecha: </strong>{{ object.Fecha }} </p>
+<p><strong>Monto: </strong>{{ object.Monto }} </p>
+
+<a type="Submit" class= "btn btn-success" href="{% url 'Cuentas:AsientosContables_List' %}">Ok</a>
+
+{% endblock %}
