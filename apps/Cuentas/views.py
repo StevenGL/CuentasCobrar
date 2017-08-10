@@ -137,11 +137,11 @@ class Enviar_AsientosContables(DetailView):
     model = Transacciones
     template_name = 'Cuenta/Enviar.html'
 #-------------------------------------------------------------------------------------------------------------------
-   # def ws(request):
-    url = "http://accountingintegration.azurewebsites.net/api/accountingentry"
-    headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
+    def ws(request):
+        url = "http://accountingintegration.azurewebsites.net/api/accountingentry"
+        headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
 
-    data = {
+        data = {
 
         "description": "Allahu Akbar",
         "auxiliary": {
@@ -165,5 +165,7 @@ class Enviar_AsientosContables(DetailView):
                 }
             ]
         }
-    r = requests.post(url, data=json.dumps(data), headers=headers)
+        r = requests.post(url, data=json.dumps(data), headers=headers)
+
+        return render(request, {"Envio":r})
 #     return render_to_response('Enviar.html', {'j': r},)
