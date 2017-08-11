@@ -39,7 +39,7 @@ class Transacciones(models.Model):
     Cliente = models.ForeignKey(Clientes, on_delete = models.CASCADE)
 
 class Asientos_Contables(models.Model):
-    Descripcion = models.CharField(max_length=2000)
+    Descripcion = models.CharField(max_length=3000)
     Cliente = models.ForeignKey(Clientes, on_delete = models.CASCADE)
     Tipo_Movimiento = models.ForeignKey(Tipos_Movimientos, on_delete = models.CASCADE)
     Cuenta = models.PositiveIntegerField()
