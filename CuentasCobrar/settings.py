@@ -28,9 +28,8 @@ SECRET_KEY = 'wu#k^er*(bk9m0htb)i-*)ywjb==pw9s&ba2b868lp+**50@xl'
 DEBUG = True
 
 ALLOWED_HOSTS = ["cryptic-lowlands-53825.herokuapp.com",
+                 "127.0.0.1",
                  ]
-
-
 
 # Application definition
 
@@ -43,7 +42,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'jquery',
     'apps.Cuentas',
-
 ]
 
 MIDDLEWARE = [
@@ -83,19 +81,19 @@ WSGI_APPLICATION = 'CuentasCobrar.wsgi.application'
 
 DATABASES = {
     'default': {
-       # 'ENGINE': 'django.db.backends.postgresql_psycopg2',
-       # 'NAME': 'CuentasCobrar',
-       # 'USER': 'postgres',
-       # 'PASSWORD': 'stivenxxx007z',
-      #  'HOST': 'localhost',
-      #  'PORT': 5432,
-
-'ENGINE': 'django.db.backends.postgresql_psycopg2',
-       'NAME': 'db95ea34jo5jqe',
-       'USER': 'chutsccccuipsd',
-        'PASSWORD': '9d3ea0db2995c21040a90c3824089a16d1551511f2519a6420a531054f1f7812',
-        'HOST': 'ec2-23-23-221-255.compute-1.amazonaws.com',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'CuentasCobrar',
+        'USER': 'postgres',
+        'PASSWORD': 'stivenxxx007z',
+        'HOST': 'localhost',
         'PORT': 5432,
+
+       # 'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        #'NAME': 'db95ea34jo5jqe',
+        #'USER': 'chutsccccuipsd',
+        #'PASSWORD': '9d3ea0db2995c21040a90c3824089a16d1551511f2519a6420a531054f1f7812',
+        #'HOST': 'ec2-23-23-221-255.compute-1.amazonaws.com',
+        #'PORT': 5432,
 
     }
 }
@@ -143,6 +141,4 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
 
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
 
-import dj_database_url
-DATABASES['default'] =  dj_database_url.config()
 
